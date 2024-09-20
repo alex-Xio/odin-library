@@ -53,3 +53,11 @@ body {
 	background-color: whitesmoke;
 	border-radius: 7px;
 }
+
+.title {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+.author {
+	color: grey;
+}
