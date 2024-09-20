@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Library</title>
 		<link rel="stylesheet" href="styles.css" />
-		<script src="scripts.js"></script>
+		<script src="scripts.js" defer></script>
 	</head>
 	<body>
 		<button class="create">+</button>
@@ -24,5 +24,39 @@
 					onclick="return false;" />
 			</div>
 		</div>
+		<dialog id="bookdialog">
+			<form>
+				<p class="title">Please insert book information</p>
+				<div class="bookform">
+					<input
+						type="text"
+						id="bookname"
+						name="book_name"
+						placeholder="Title"
+						required />
+					<input
+						type="text"
+						id="bookauthor"
+						name="book_author"
+						placeholder="Author"
+						required />
+					<input
+						type="number"
+						id="bookpagecount"
+						name="book_pagecount"
+						placeholder="Pages"
+						required />
+					<div>
+						<label for="bookisfinished">Is book finished?</label>
+						<input
+							type="checkbox"
+							id="bookisfinished"
+							name="book_isfinished"
+							required />
+					</div>
+					<button autofocus class="addbook">Submit</button>
+				</div>
+			</form>
+		</dialog>
 	</body>
 </html>
