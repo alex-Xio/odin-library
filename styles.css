@@ -35,3 +35,17 @@ body > * {
 .isread {
 	display: flex;
 }
+#bookdialog {
+	min-height: 200px;
+}
+
+#bookdialog .bookform {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+#bookdialog input {
+	border: 0;
+	background-color: whitesmoke;
+	border-radius: 7px;
+}
