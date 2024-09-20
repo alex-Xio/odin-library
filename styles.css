@@ -4,20 +4,24 @@
 
 body {
 	margin: 0;
+}
+
+.container > * {
+	border-radius: 10px;
+}
+
+.container {
 	padding: 16px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 200px);
 	gap: 16px;
 }
 
-body > * {
-	border-radius: 10px;
-}
-
 .create {
 	border: 0;
 	background-color: whitesmoke;
 	font-size: 4rem;
+	height: 300px;
 }
 .create:hover {
 	background-color: lightgrey;
@@ -25,7 +29,6 @@ body > * {
 
 .book {
 	background-color: whitesmoke;
-	width: 200px;
 	height: 300px;
 	display: flex;
 	flex-direction: column;
