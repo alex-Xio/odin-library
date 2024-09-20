@@ -9,6 +9,11 @@ const pagecountElement = document.querySelector('#bookpagecount');
 const finishedElement = document.querySelector('#bookisfinished');
 const library = [];
 
+function deleteBook(index) {
+	document.querySelector(`[data="${index}"]`).remove();
+	library[index] = null;
+}
+
 function emptyForm() {
 	nameElement.value = '';
 	authorElement.value = '';
@@ -16,12 +21,12 @@ function emptyForm() {
 	finishedElement.checked = false;
 }
 
-function appendBook(book, data) {
+function appendBook(book, index) {
 	container.innerHTML += `
-    <div class="book" data="${data}">
+    <div class="book" data="${index}">
     <p class="title">${book.name}</p>
-    <p class="author">${book.author}</p>
-    <p class="pagecount">${book.pagecount}</p>
+    <p class="author">by ${book.author}</p>
+    <p class="pagecount">${book.pagecount} pages</p>
 			<div class="isread">
 				<p>Finished</p>
 
@@ -31,13 +36,13 @@ function appendBook(book, data) {
 					name="isread"
           ${book.isChecked} />
 			</div>
+    <button class="delete" onclick="deleteBook(${index})">Delete</button>
 		</div>
   `;
-	let checkboxlist = document.querySelectorAll('.readcheckbox');
-	let checkbox = checkboxlist[checkboxlist.length - 1];
+	let checkbox = document
+		.querySelector(`[data="${index}"]`)
+		.querySelector('.readcheckbox');
 	checkbox.addEventListener('click', () => {
-		let index = checkbox.parentElement.parentElement.getAttribute('data');
-		// library[index].finished = checkbox.checked;
 		library[index].toggleFinished();
 	});
 }
@@ -49,7 +54,6 @@ function Book(name, author, pagecount, finished) {
 	this.finished = finished;
 	this.isChecked = this.finished ? 'checked' : '';
 	this.toggleFinished = function () {
-		console.log('trigger');
 		this.finished = !this.finished;
 	};
 }
