@@ -37,7 +37,8 @@ function appendBook(book, data) {
 	let checkbox = checkboxlist[checkboxlist.length - 1];
 	checkbox.addEventListener('click', () => {
 		let index = checkbox.parentElement.parentElement.getAttribute('data');
-		library[index].finished = checkbox.checked;
+		// library[index].finished = checkbox.checked;
+		library[index].toggleFinished();
 	});
 }
 
@@ -47,6 +48,10 @@ function Book(name, author, pagecount, finished) {
 	this.pagecount = pagecount;
 	this.finished = finished;
 	this.isChecked = this.finished ? 'checked' : '';
+	this.toggleFinished = function () {
+		console.log('trigger');
+		this.finished = !this.finished;
+	};
 }
 
 form.addEventListener('submit', (event) => {
