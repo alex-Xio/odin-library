@@ -8,22 +8,6 @@
 		<script src="scripts.js" defer></script>
 	</head>
 	<body>
-		<button class="create">+</button>
-		<div class="book">
-			<p class="title">Example book</p>
-			<p class="author">Example author</p>
-			<p class="pagecount">388</p>
-			<div class="isread">
-				<p>Finished</p>
-
-				<input
-					type="checkbox"
-					class="readcheckbox"
-					name="isread"
-					checked
-					onclick="return false;" />
-			</div>
-		</div>
 		<dialog id="bookdialog">
 			<form>
 				<p class="title">Please insert book information</p>
@@ -54,5 +38,8 @@
 				</div>
 			</form>
 		</dialog>
+		<div class="container">
+			<button class="create" onclick="dialog.show()">+</button>
+		</div>
 	</body>
 </html>
